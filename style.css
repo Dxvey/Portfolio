@@ -1,0 +1,1067 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: black;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+
+
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 50%;
+    margin: 0 auto;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.10); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: sticky;
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0 25px;
+    transition: color 0.3s;
+}
+
+.main-nav {
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-self: center;
+    gap: 50px;
+    list-style: none;
+}
+
+.main-nav a{
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+    right: 50px;
+}
+
+.main-nav a::after{
+    background-color: rgba(131, 10, 131, 1); /* Your purple */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: black;
+}
+
+.main-nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.hamburger {
+    display: none; /* Hidden on Desktop */
+    flex-direction: column;
+    gap: 5px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+nav .logo{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+    display: flex;
+    color: rgba(131, 10, 131);
+    padding-left: 30px;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.box{
+    height: 600px;
+    width: 700px;
+    max-width: 80vw;
+    background-color: rgba(131, 10, 131, 0.637);
+    border-radius: 300px;
+    filter: blur(200px);
+    position: sticky;
+
+
+    animation: growOnScroll linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes growOnScroll {
+    from {
+        opacity: 0;
+        transform: scale(0.5); /* Starts at half size */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);   /* Ends at full size */
+    }
+}
+
+.intro{
+    display: flex;
+    justify-self: start;
+    position: relative;
+    bottom: 400px;
+    padding: 0 20px;
+    line-height: 2;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.intro h2{
+    color: white;
+    position: relative;
+    font-size: 20px;
+    left: 30px;
+    top: 100px;
+}
+
+.intro h1{
+    color: white;
+    font-size: 70px;
+    position: relative;
+    top: 100px;
+    right: 106px;
+    line-height: 1;
+}
+
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+    right: 150px;
+}
+
+.square{
+    height: 530px;
+    width: 400px;
+    background: transparent;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: 570px;
+    right: 25px;
+    z-index: 0;
+}
+
+.card{
+    height: 50%;
+    width: 400px;
+    border-radius: 30px;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transition: transform .8s ease-in-out;
+}
+
+.card:hover{
+    transform: rotateY(180deg);
+}
+
+.front-page,
+.back-page{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.front-page img{
+    height: 50%;
+    width: 400px;
+    border-radius: 30px;
+}
+
+.back-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    transform: rotateY(180deg);
+}
+
+.card-content{
+    background-image: url(img/2011_hunter_licence_by_nightmanexe-d4sb6if.png);
+    background-size:400px 530px;
+    height: 530px;
+    width: 500px;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 535px;
+    z-index: 1;
+}
+
+.card-content h3{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 215px;
+}
+
+.btn{
+    width: 150px;
+    height: 40px;
+    position: relative;
+    bottom: 400px;
+    left:50px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.work-container {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 600px;
+}
+
+.work-box{
+    height: 1030px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: black  ;
+    border-radius: 12px;
+    border: 2px solid white;
+    position: relative;
+    top: 400px;
+    z-index: 0;
+}
+
+/* 2. Style the "Creations" Title */
+.proof-h1 {
+    font-size: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 600px;
+    left: 10px;
+    z-index: 1;
+
+    animation: fadeUp 2s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+
+.work-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two columns */
+    gap: 20px;                      /* Space between images */
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 620px;
+
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeUp{
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.work1 img, .work2 img, .work3 img, .work4 img {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-radius: 30px;
+    border: 2px solid white;
+}
+
+.about-title{
+    font-size: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 910px;
+    left: 10px;
+    z-index: 1;
+
+    animation: fadeUp 2s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.about-box{
+    height: 400px;
+    width: 600px;
+    background-color: grey;
+    position: relative;
+    bottom: 850px;
+    left: 300px;
+    border-radius: 10px;
+
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.about-box2{
+    height: 375px;
+    width: 575px;
+    background-color: transparent;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.photo img{
+    height: auto;
+    width: 20%;
+    position: relative;
+    bottom: 1250px;
+    left: 940px;
+    border-radius: 10px;
+
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.about-text{
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 560px;
+    color: black;
+    position: relative;
+    bottom: 350px;
+    left: 30px;
+    text-align: center;
+
+}
+
+.about-text2{
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 530px;
+    color: black;
+    position: relative;
+    bottom: 330px;
+    left: 30px;
+    text-align: center;
+
+}
+
+.about-text3{
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 540px;
+    color: black;
+    position: relative;
+    bottom: 310px;
+    left: 30px;
+    text-align: center;
+}
+
+.about-square{
+    height: 600px;
+    width: 700px;
+    background-color: rgba(131, 10, 131, 0.637);
+    border-radius: 300px;
+    filter: blur(200px);
+    position: sticky;
+
+    animation: growOnScroll linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+
+
+.skills-text h1{
+    font-size: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    width: 520px;
+    position: relative;
+    bottom: 1100px;
+    left: 520px;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.skills-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 500px;
+    right: 550px;
+}
+
+.html-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 440px;
+    bottom: 590px;
+}
+
+.html-logo p{
+    color: white;
+    position: relative;
+    left: 85px;
+    top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.html-logo img{
+    height: 150px;
+    width: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 10px 40px 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.css-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 502px;
+    bottom: 590px;
+}
+
+.css-logo p{
+    color: white;
+    position: relative;
+    left: 75px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.css-logo img{
+    height: 150px;
+    width: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 10px 40px 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.js-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 500px;
+    bottom: 590px;
+}
+
+.js-logo p{
+    color: white;
+    position: relative;
+    left: 100px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.js-logo img{
+    height: 150px;
+    width: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 10px 40px 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.python-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 580px;
+    bottom: 590px;
+}
+
+.python-logo p{
+    color: white;
+    position: absolute;
+    left: 25px;
+    top: 105px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.python-logo img{
+    height: 150px;
+    width: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 10px 40px 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.html-logo img:hover, .css-logo img:hover,
+.js-logo img:hover ,.python-logo img:hover{
+    transform: scale(1.1);
+}
+
+.html-logo:hover p, .css-logo:hover p,
+.js-logo:hover p,.python-logo:hover p{
+    transform: scale(1.1);
+}
+
+.skills-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.skills-box{
+    height: 250px;
+    width: 725px;
+    background-color: grey;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    bottom: 1050px;
+    right: 10px;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    
+}
+
+.skills-description p{
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 700px;
+    color: black;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    top: 0px;
+    left: 10px;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.skills-box2{
+    height: 225px;
+    width: 701px;
+    background-color: transparent;
+    border: 3px solid black;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 180px;
+}
+
+.contact-title{
+    font-size: 40px;
+    position: absolute;
+    bottom: 190px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.contact-links ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 55px;
+    position: relative;
+    bottom: 20px;
+    right: 22px;
+}
+
+.contact-links li{
+    list-style: none;
+}
+
+.contact-links a{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.contact-logo {
+    display: flex;
+    flex-direction: row;    /* Makes them go left-to-right */
+    justify-content: center;
+    gap: 40px;              /* Equal space between them */
+    margin-bottom: 30px;
+}
+
+.github-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-logo img{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    box-shadow: 0 1px 32px rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.facebook-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.facebook-logo img{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    box-shadow: 0 1px 32px rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.instagram-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instagram-logo img{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    box-shadow: 0 1px 32px rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.gmail-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gmail-logo img{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    box-shadow: 0 1px 32px rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.github-logo, .facebook-logo, .instagram-logo, .gmail-logo {
+    position: static;       /* REMOVE absolute */
+}
+
+.contact-logo img {
+    position: static;       /* REMOVE bottom and left */
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+@media (max-width:1300px) {
+    .hamburger{
+        display: flex;
+        position: relative;
+        right: 20px;
+    }
+    nav{
+        height: 57px;
+    }
+
+    nav .main-nav {
+        display: none; /* Hide standard list */
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        width: 50%;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.40); 
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 20px 10px 20px 100px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    nav a {
+        color: white;
+    }
+
+    nav ul{
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    nav label{
+        display: inline-flex;
+        color: white;
+        cursor: pointer;
+    }
+    nav #toggle:checked ~ .main-nav{
+        display: flex;
+    }
+
+    .square {
+        width: 70%;
+        height: 45%;
+        position: absolute;
+        left: 30%;
+    }
+    .box{
+        left: 100px;
+    }
+
+    .front-page img{
+        width: 75%;
+        position: relative;
+        left: 140px;
+        bottom: 20px;
+    }
+
+    .card-content {
+        background-size: contain; /* Ensure the license image fits */
+        width: 70%;
+        position: relative;
+        left: 100px;
+        bottom: 430px;
+        display: flex;
+        justify-content: center;
+        background-repeat: no-repeat;
+
+    }
+    
+    .card-content h3 {
+        font-size: 28px; /* Smaller text on mobile */
+        top: -40px;
+    }
+
+    .intro h1{
+        width: 450px;
+    }
+
+    .work-box{
+        height: 750px;
+        position: relative;
+        top: 190px;
+    }
+
+    .about-box{
+        height: 310px;
+        width: 500px;
+        background-color: grey;
+        position: relative;
+        bottom: 900px;
+        left: 100px;
+        border-radius: 10px;
+
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+    .about-box2{
+        height: 285px;
+        width: 475px;
+        background-color: transparent;
+        position: relative;
+        top: 10px;
+        left: 10px;
+        border: 3px solid black;
+        border-radius: 10px;
+
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+    .photo img{
+        height: auto;
+        width: 25%;
+        position: absolute;
+        bottom: 1665px;
+        left: 640px;
+        border-radius: 10px;
+
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+    .about-text{
+        font-size: 18px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        width: 450px;
+        color: black;
+        position: relative;
+        bottom: 250px;
+        left: 30px;
+        text-align: center;
+
+    }
+
+    .about-text2{
+        font-size: 18px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        width: 450px;
+        color: black;
+        position: relative;
+        bottom: 230px;
+        left: 30px;
+        text-align: center;
+
+    }
+
+    .about-text3{
+        font-size: 18px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        width: 450px;
+        color: black;
+        position: relative;
+        bottom: 215px;
+        left: 20px;
+        text-align: center;
+    }
+
+    .about-square{
+        height: 500px;
+        width: 600px;
+        background-color: rgba(131, 10, 131, 0.637);
+        border-radius: 300px;
+        filter: blur(200px);
+        position: sticky;
+        bottom: 650px;
+        left: 420px;
+
+        animation: growOnScroll linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+    }
+
+    .skills-text h1{
+        font-size: 80px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: white;
+        width: 520px;
+        position: relative;
+        bottom: 800px;
+        left: 300px;
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+    .skills-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        bottom: 250px;
+        right: 510px;
+    }
+
+    .skills-box{
+        height: 250px;
+        width: 725px;
+        background-color: grey;
+        margin: auto;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        bottom: 820px;
+        left: 10px;
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    
+    }
+
+    .skills-description p{
+        font-size: 19px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 700px;
+        color: black;
+        margin: auto;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+        top: 0px;
+        left: 10px;
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+    .skills-box2{
+        height: 225px;
+        width: 701px;
+        background-color: transparent;
+        border: 3px solid black;
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        border-radius: 20px;
+        z-index: 1;
+        animation: fadeUp 1s linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+}
